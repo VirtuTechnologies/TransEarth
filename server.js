@@ -412,6 +412,31 @@ app.get("/TransEarth/getTruckMakes", LookupRoute.getTruckMakes);
 app.get('/TransEarth/test', function (req, res) {
     res.render('test');
 });
+app.post('/TransEarth/getTruckPostingsSummaryTest', function (req, res) {
+
+    var response ={
+        truckPostList : {
+            details : [
+                {
+                    source : "Chennai",
+                    destination : "Vellore",
+                    capacity : "101 Tons",
+                    availableDate : "03rd Jan 2016"
+                },
+                {
+                    source : "Vellore",
+                    destination : "Bangalore",
+                    capacity : "102 Tons",
+                    availableDate : "06rd May 2016"
+                }
+            ]
+        }
+    }
+    ;
+    console.log("Response for get Truck Summary:" +JSON.stringify(response));
+    res.json(200, response);
+});
+
 // Create an HTTP service.
 var server = http.createServer(app);
 

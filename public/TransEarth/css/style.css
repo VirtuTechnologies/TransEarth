@@ -1,518 +1,327 @@
+* {margin:0; padding:0;}
 body {
-  background: #F0EFE4;
+    font-family:'Maven Pro';
+    color:white;
 }
-address {
-  display: block;
-  margin-bottom: 5px;
-  font-style: normal;
-  line-height: 20px;
+li {
+    list-style:none;
 }
-.stream-author {
-  color: #333;
+a {
+    text-decoration:none;
+    color:black;
 }
-.header {
-  background: url("../images/custom/header-bg.png") repeat-x top left;
-  height: 81px;
+.textbox {
+    width:250px;
+    background:white;
+    outline:none;
+    padding:10px;
+    border:none;
+    box-shadow:0 0 2px #424242;
+    margin:2px;
 }
-.header p {
-  color: #FFFFFF;
-  font-size: 32px;
-  padding: 30px;
+.buttons {
+    width:80px;
+    padding:10px;
+    margin:2px;
+    outline:white;
+    border:none;
+    color:white;
 }
-.header p .inner {
-  color: #FFF;
-  padding: 30px;
-  font-size: 32px;
-}
-/*.navbar .brand,.nav-collapse li a,.nav-collapse li > a:hover {
-  color: #FFF !important;
-}*/
-.navbar-inner {
-  background: none;
-}
-.widget-usage h3 {
-  color: #333;
-}
-.header .nav li.text-menu-white a {
-  color: #FFF !important;
-}
-.dropdown-menu {
-  color: #000;
-}
-.header .nav li.drop-down-toggle a:hover,
-.navbar .nav > li.dropdown.open > .dropdown-toggle,
-.navbar .nav > li.dropdown.active > .dropdown-toggle,
-.navbar .nav > li.dropdown.open.active > .dropdown-toggle {
-  color: #333 !important;
-}
-.pad5 {
-  padding: 12px;
-  background: #80D5E9;
-  background-color: #ebf6fc;
-  background-image: -moz-linear-gradient(top, #ffffff, #cde8f7);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#cde8f7));
-  background-image: -webkit-linear-gradient(top, #ffffff, #cde8f7);
-  background-image: -o-linear-gradient(top, #ffffff, #cde8f7);
-  background-image: linear-gradient(to bottom, #ffffff, #cde8f7);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffcde8f7', GradientType=0);
-  color: #0077CC2;
-  text-shadow: 0 1px 0 #fff;
-}
-.module-cards {
-  min-height: 200px ;
-}
-.navbar .brand {
-  color: #FFF;
-}
-.nav li a {
-  color: #FFF !important;
-}
-.icon-upload-custom {
-  background: url('../images/custom/upload.png') no-repeat 0 0;
-  height: 20px;
-  width: 20px;
-}
-/* Custom Date Styles */
-.example-date {
-  width: 80px;
-  margin-right: 25px;
-  background: #fcfcfc;
-  background: linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  background: -webkit-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  border: 1px solid #d2d2d2;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  float: left;
-  margin-left: 10px;
-  padding: 45px 5px 0;
-  position: relative;
-}
-.example-date .month {
-  font-size: 25px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.example-date .day {
-  font-size: 45px;
-  left: 15px;
-  line-height: 45px;
-  position: absolute;
-  top: 0;
-}
-.example-date .year {
-  display: block;
-  position: absolute;
-  right: -5px;
-  top: 15px;
-  transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-}
-.example-date span.month {
-  background: #d10000;
-  background: linear-gradient(top, #d10000 0%, #7a0909 100%);
-  background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
-  background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-  display: block;
-  border-top: 3px solid #a13838;
-  border-radius: 0 0 10px 10px;
-  -moz-border-radius: 0 0 10px 10px;
-  -webkit-border-radius: 0 0 10px 10px;
-  padding: 6px 0 6px 0;
-}
-.example-date-small {
-  width: 60px;
-  margin-right: 5px;
-  background: #fcfcfc;
-  background: linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  background: -webkit-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
-  border: 1px solid #d2d2d2;
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  float: left;
-  padding: 45px 0 0;
-  position: relative;
-}
-.example-date-small .month {
-  font-size: 20px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.example-date-small .day {
-  font-size: 35px;
-  left: 5px;
-  line-height: 45px;
-  position: absolute;
-  top: 0;
-}
-.example-date-small .year {
-  display: block;
-  position: absolute;
-  right: -5px;
-  top: 15px;
-  transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-}
-.example-date-small span.month {
-  background: #d10000;
-  background: linear-gradient(top, #d10000 0%, #7a0909 100%);
-  background: -moz-linear-gradient(top, #d10000 0%, #7a0909 100%);
-  background: -webkit-linear-gradient(top, #d10000 0%, #7a0909 100%);
-  font-weight: bold;
-  color: #fff;
-  text-transform: uppercase;
-  display: block;
-  border-top: 3px solid #a13838;
-  border-radius: 0 0 10px 10px;
-  -moz-border-radius: 0 0 10px 10px;
-  -webkit-border-radius: 0 0 10px 10px;
-  padding: 6px 0 6px 0;
-}
-.app-tray-box {
-  border: 1px solid #333;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  width: 60px;
-}
-.app-tray-box img {
-  padding: 2px 6px;
-}
-.app-tray-box:hover {
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
-}
-.search-result ul li {
-  color: #000 !important;
-}
-
-
-/*=============================================================
-    Authour URL: www.designbootstrap.com
-
-    http://www.designbootstrap.com/
-
-    License: MIT
-
-    http://opensource.org/licenses/MIT
-
-    100% Free To use For Personal And Commercial Use.
-
-    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
-
-========================================================  */
-
-
-/* =============================================================
-   GENERAL STYLES
- ============================================================ */
-
-@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
-
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 30px;
-}
-
-.set-radius-zero {
-  border-radius: 0px;
-  -moz-border-radius: 0px;
-  -webkit-border-radius: 0px;
-}
-
-.content-wrapper {
-  margin-top: 40px;
-  min-height: 600px;
-  padding-bottom: 60px;
-}
-
-.page-head-line {
-  font-weight: 900;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #F0677C;
-  text-transform: uppercase;
-  color: #F0677C;
-  font-size: 20px;
-  margin-bottom: 40px;
-}
-
-.btn {
-  border-radius: 0px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-}
-
-.progress {
-  height: 8px;
-  border-radius: 0px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-}
-.login-icon {
-  height: 60px;
-  width: 60px;
-  padding: 13px;
-  border-radius: 50%;
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: #fff;
-  text-align: center;
-  cursor:pointer;
-  background-color:#F0677C;
-  -webkit-border-radius:50%;
-  -moz-border-radius:50%;
-}
-/* =============================================================
-   HEADER SECTION STYLES
- ============================================================ */
 header {
-  background-color: #F0677C;
-  color: #fff;
-  padding: 10px;
-  text-align: right;
+    height:45px;
+    width:100%;
+    background:linear-gradient(white,lightgray);
+    box-shadow: 0 0 8px #424242;
 }
 
+@media screen and (min-width:800px){
+    body {
+        background:url('/TransEarth/images/pattern.png');
+    }
+    header {
+        height:45px;
+        width:100%;
+        background:linear-gradient(white,lightgray);
+        box-shadow: 0 0 8px #424242;
+    }
+    #logo {
+        height:40px;
+        float:left;
+        padding:2px 0;
+        margin-left:4%;
+    }
+    .navmenu {
+        width:45%;
+        height:100%;
+        float:right;
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .navmenu  li {
+        float:left;
+        padding: 14px 4%;
+    }
+    .navmenu  li  a:hover {
+        color:#006FD7;
+    }
+    .truck-owner {
+        display:none;
+    }
+    .load-owner {
+        display:none;
+    }
+    .loginpanel {
+        background:rgba(0,0,0,0.9);
+        z-index:100;
+        position:fixed;
+        width:60%;
+        height:400px;
+        display:none;
+        margin:5% 20%;
+    }
+    .loginpanel ul {
+        width:274px;
+        margin:10% auto;
+    }
+    .loginpanel ul li{
+        margin:10px auto;
+    }
+    .signuppanel {
+        background:rgba(0,0,0,0.9);
+        z-index:100;
+        position:fixed;
+        width:60%;
+        height:500px;
+        display:none;
+        margin:3% 20%;
+    }
+    .signuppanel ul {
+        width:274px;
+        margin:5% auto;
+    }
+    .signuppanel ul li{
+        margin:10px auto;
+    }
+    .steps {
+        width: 30px;
+        text-align: -webkit-center;
+        background: url('/TransEarth/images/next.png') no-repeat;
+        background-size: cover;
+        font-size: 16px;
+        float: left;
+        height: 30px;
+        margin-left: 46px;
+        line-height: 28px;
+        margin-bottom: 30px;
+    }
+    .step2, .step3 {
+        display:none;
+    }
+    .closediv {
+        float:right;
+        position:absolute;
+        top:0;
+        right:0;
+        margin-right: 11px;
+        color: white;
+        margin-top: 7px;
+    }
+    .container {
+        width:100%;
+        height:90%;
+    }
+    .loaddetails, .truckdetails {
+        width: 400px;
+        height: 400px;
+        background:rgba(0,0,0,.8);
+        float:left;
+        margin:3% 3%;
+    }
+    .slider {
+        width:100%;
+        height:325px;
+    }
+    .truckdetailpane {
+        padding:2% 5%;
+    }
+    .truckdetailpane.ng-enter,
+    .truckdetailpane.ng-leave {
+        -webkit-transition:300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -moz-transition:300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -o-transition:300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        transition:300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        position:absolute;
+    }
+    .truckdetailpane.ng-enter {
+        marginLeft: "-100px";
+        opacity: 0;
+    }
+    .truckdetailpane.ng-leave,
+    .truckdetailpane.ng-enter.ng-enter-active {
+        left:0;
+        opacity: 1;
+    }
+    .truckdetailpane.ng-leave.ng-leave-active {
+        marginLeft: "-100px";
+        opacity: 0;
+    }
 
-/* =============================================================
-   LOGO SECTION STYLES
- ============================================================ */
-.left-div {
-  padding-left: 30px;
-  margin-top: 40px;
-  margin-bottom: 30px;
-}
+    .loaddetailpane {
+        padding:2% 5%;
+        /*display:none;*/
+    }
+    .loaddetailpane.ng-enter,
+    .loaddetailpane.ng-leave {
+        -webkit-transition:0.5s linear all;
+        -moz-transition:0.5s linear all;
+        -o-transition:0.5s linear all;
+        transition:0.5s linear all;
+        position:absolute;
+    }
+    .loaddetailpane.ng-enter {
+        /*display:block;*/
+        left:100%;
+    }
+    .loaddetailpane.ng-leave,
+    .loaddetailpane.ng-enter.ng-enter-active {
+        left:0;
+    }
+    .loaddetailpane.ng-leave.ng-leave-active {
+        left:-100%;
+        /* display:none;*/
+    }
 
-.navbar-brand {
-  width: 250px;
-  padding-top: 30px;
-}
+    @keyframes my_animation {
+        from { opacity:1; }
+        to { opacity:0; }
+    }
+    @-webkit-keyframes my_animation {
+        from { opacity:1; }
+        to { opacity:0; }
+    }
 
-/* USER SETTINGS DIV */
-.user-settings-wrapper .nav > li > a {
-  position: relative;
-  display: block;
-  padding: 15px 18px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  background-color: #F0677C;
-  color: #fff;
-}
+    @-moz-keyframes my_animation {
+        from { opacity:1; }
+        to { opacity:0; }
+    }
 
-.user-settings-wrapper {
-  margin-top: 10px;
-}
+    @-o-keyframes my_animation {
+        from { opacity:1; }
+        to { opacity:0; }
+    }
 
-.user-settings-wrapper li {
-  display: inline-block;
-}
+    .switch {
+        position: relative;
+    }
 
-.user-settings-wrapper .dropdown-settings {
-  width: 200px;
-  padding: 10px;
-}
+    .switch > div {
+        width: 655px;
+        display: inline-block;
+        position: absolute;
+    }
 
-.user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
-  text-decoration: none;
-  background-color: #C36464!important;
-}
+    .animate-enter,
+    .animate-leave
+    {
+        -webkit-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -moz-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -ms-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -o-transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        transition: 300ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    }
 
-.user-settings-wrapper img {
-  height: 64px;
-  width: 64px;
-  border: 1px solid #000000;
-}
+    .animate-enter {
+        left: 100%;
+    }
+    .animate-enter.animate-enter-active {
+        left: 0;
+    }
 
-.user-settings-wrapper .dropdown-menu {
-  margin: 0px;
-  border-radius: 0px!important;
-  -moz-border-radius: 0px!important;
-  -webkit-border-radius: 0px!important;
-}
+    .animate-leave {
+        left: 0;
+    }
+    .animate-leave.animate-leave-active{
+        left: -100%;
+    }
 
-.user-settings-wrapper .btn {
-  border-radius: 0px!important;
-  -moz-border-radius: 0px!important;
-  -webkit-border-radius: 0px!important;
-}
-
-.user-settings-wrapper .media-heading {
-  padding-top: 10px;
-}
-
-/* MENU LINKS SECTION*/
-
-.menu-section {
-  background-color: #3D3D3D;
-}
-
-#menu-top a {
-  color: #FFF;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 10px 10px 10px 10px;
-  text-transform: uppercase;
-}
-
-.menu-top-active {
-  background-color: #C36464;
-}
-
-.menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
-  background-color: #F0677C!important;
-}
-
-.menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
-  background-color: #F0677C!important;
-}
-
-.navbar-inverse {
-  background-color: #C36464;
-  border-color: transparent;
-}
-
-.navbar-toggle {
-  background-color: #F0677C;
-  border: 1px solid #fff;
-}
-
-.navbar {
-  margin-bottom: 0px;
-}
-/* =============================================================
-   FOOTER SECTION STYLES
- ============================================================ */
-footer {
-  padding: 10px;
-  color: #fff;
-  font-size: 12px;
-  background-color: #C36464;
-}
-
-footer a, footer a:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-/*==============================================
-    DASHBOARD  STYLES
- =============================================*/
-
-/* DASHBOARD ICONS */
-
-.bk-clr-one {
-  background-color: #B9B739;
-}
-
-.bk-clr-two {
-  background-color: #F94C4C;
-}
-
-.bk-clr-three {
-  background-color: #119c7e;
-}
-
-.bk-clr-four {
-  background-color: #b739b9;
-}
-
-.dashboard-div-icon {
-  height: 75px;
-  width: 75px;
-  border: 2px solid #fff;
-  padding: 20px;
-  border-radius: 50%;
-  -webkit-border-radius:50%;
-  -moz-border-radius:50%;
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-.dashboard-div-wrapper {
-  border-radius: 5px;
-  text-align: center;
-  padding: 15px;
-  color: #fff;
-  margin-bottom: 50px;
-}
-
-.dashboard-div-wrapper .progress {
-  height: 2px;
-}
-
-/* NOTICE BOARD */
-
-
-.notice-board .panel {
-  border-radius: 0px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-}
-
-.notice-board ul {
-  padding-left: 0px;
-  list-style: none;
-}
-
-.notice-board li {
-  padding: 10px;
-  border-bottom: 1px solid #E5E5E5;
-}
-
-.notice-board li span {
-  margin-right: 10px;
-  border: 1px solid #DBDBDB;
-  padding: 5px;
-}
-
-.notice-board li a, li a:hover {
-  text-decoration: none;
-  color: #000;
-}
-
-/* SOCIAL BUTTONS */
-.btn-social {
-  color: white;
-  opacity: 0.8;
-}
-
-.btn-social:hover {
-  color: white;
-  opacity: 1;
-  text-decoration: none;
-}
-
-.btn-facebook {
-  background-color: #3b5998;
-}
-
-.btn-twitter {
-  background-color: #00aced;
-}
-
-.btn-linkedin {
-  background-color: #0e76a8;
-}
-
-.btn-google {
-  background-color: #c32f10;
+    .first-slide {
+        display:block;
+    }
+    .loaddetailpane li, .truckdetailpane li {
+        padding-bottom:3%;
+        height:20px;
+    }
+    #profilepic {
+        height:60px;
+        vertical-align:middle;
+        background:url('/TransEarth/images/proholder.png') no-repeat;
+        background-size:cover;
+        margin-right: 11px;
+    }
+    .nameplace a:hover {
+        color:#C24C0F;
+    }
+    .nameplace a {
+        color:white;
+        font-size: 17px;
+        font-weight: 700;
+    }
+    .infos {
+        padding:4px 10px;
+        color:white;
+        font-size: 17px;
+        font-weight: 700;
+    }
+    .insert-enter {
+        -webkit-transform:scale(0);
+        transform:scale(0);
+        -webkit-transition-property: all;
+        transition-property: all;
+        -webkit-transition-timing-function: ease-out-cubic;
+        transition-timing-function: ease-out-cubic;
+        -webkit-transition-duration: 400ms;
+        transition-duration: 400ms;
+    }
+    .insert-enter.insert-enter-active {
+        -webkit-transform:scale(1);
+        transform:scale(1);
+        transition-delay:500ms;
+    }
+    .insert-transition-delay-1 {
+        -webkit-transition-delay:1000ms;
+        transition-delay:1000ms;
+    }
+    .insert-transition-delay-2 {
+        -webkit-transition-delay:2000ms;
+        transition-delay:2000ms;
+    }
+    .insert-transition-delay-3 {
+        -webkit-transition-delay:3000ms;
+        transition-delay:3000ms;
+    }
+    .insert-transition-delay-4 {
+        -webkit-transition-delay:4000ms;
+        transition-delay:4000ms;
+    }
+    .button-opt {
+        margin-top:0;
+    }
+    .button-opt li {
+        float:left;
+        padding:0 25px;
+    }
+    .button-option {
+        padding:4px 15px;
+        font-size:13px;
+        font-weight:700;
+        background:transparent;
+        outline:none;
+        border:2px solid white;
+        color:white;
+    }
+    .button-option:hover {
+        background:#ffffff;
+        color:#242424;
+        cursor:pointer;
+    }
 }

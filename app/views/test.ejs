@@ -19,7 +19,7 @@
 		<!-- CUSTOM STYLE  -->
 		<link href="angular/css/ng-grid.css" rel="stylesheet" type="text/css" />
 		<link href="css/transEarthStyle.css" rel="stylesheet" />
-		<link href="css/animations.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
 
 		<!-- script src="https://maps.gstatic.com/maps-api-v3/api/js/21/0/main.js"></script>
 		<script src="https://maps.gstatic.com/maps-api-v3/api/js/21/0/places.js"></script -->
@@ -38,38 +38,63 @@
 	</head>
 	<body ng-app="Otd" ng-controller="SearchForm">
 
-		<google-places location=location></google-places>
-		<google-places-temp tagId="From" tagName="From" city=fromLocation></google-places-temp>
-		<google-places-temp tagId="To" tagName="To" city=toLocation></google-places-temp>
-		<!-- google-temp-places location=location fromId=fromId></google-temp-places -->
-		<!-- input google-temp-places id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/ -->
-		<button ng-click="doSearch()" class="btn btn-large btn-primary">Search</button>
-
-		<div class="input-group">
-			<span class="input-group-addon">
-				<i class="fa fa-map-marker fa-2"></i>
-			</span>
-			<div id="city">
-				<div ng-class="{'has-error': form.user_city.$error.required,
-					'has-success' : !(form.user_city.$error.required),
-					'has-feedback' : form.user_city.$error.required}">
-					<input class="form-control" id="user_city" name="user_city" disable="false" type="text" class="input-block-level"
-						   ng-model="location.place" ng-required="true"/>
+		<div class="container" id="index">
+			<!--div class="loaddetails">
+				<div class="slider">
+					<p class="nameplace" style="height:60px; margin:30px 20px;" ><img id="profilepic" src="images/load.png" alt=""><a href="#">Load Posts</a></p>
+					<div ng-switch="index.loadSelection">
+						<ul class="loaddetailpane" ng-switch-when="0">
+							<li><p class="infos">FROM: {{index.loadPostList[0].source}}</p></li>
+							<li><p class="infos">TO: {{index.loadPostList[0].destination}}</p></li>
+							<li><p class="infos">TONS: {{index.loadPostList[0].capacity}}</p></li>
+							<li><p class="infos">DATE: {{index.loadPostList[0].availableDate}}</p></li>
+						</ul>
+						<ul class="loaddetailpane" ng-switch-when="1">
+							<li><p class="infos">FROM: {{index.loadPostList[1].source}}</p></li>
+							<li><p class="infos">TO: {{index.loadPostList[1].destination}}</p></li>
+							<li><p class="infos">TONS: {{index.loadPostList[1].capacity}}</p></li>
+							<li><p class="infos">DATE: {{index.loadPostList[1].availableDate}}</p></li>
+						</ul>
+						<ul class="loaddetailpane" ng-switch-when="2">
+							<li><p class="infos">FROM: {{index.loadPostList[2].source}}</p></li>
+							<li><p class="infos">TO: {{index.loadPostList[2].destination}}</p></li>
+							<li><p class="infos">TONS: {{index.loadPostList[2].capacity}}</p></li>
+							<li><p class="infos">DATE: {{index.loadPostList[2].availableDate}}</p></li>
+						</ul>
+						<ul class="loaddetailpane" ng-switch-when="3">
+							<li><p class="infos">FROM: {{index.loadPostList[3].source}}</p></li>
+							<li><p class="infos">TO: {{index.loadPostList[3].destination}}</p></li>
+							<li><p class="infos">TONS: {{index.loadPostList[3].capacity}}</p></li>
+							<li><p class="infos">DATE: {{index.loadPostList[3].availableDate}}</p></li>
+						</ul>
+					</div>
 				</div>
+				<ul class="button-opt">
+					<li style="padding-right: 65px;"><input class="button-option" type="submit" name="findmore" value="FIND MORE" /></li>
+					<li><input class="button-option" type="submit" name="viewthis" value="VIEW THIS LOAD" /></li>
+				</ul>
+			</div -->
+			<div class="truckdetails">
+				<div class="slider">
+					<p class="nameplace" style="height:60px; margin:30px 20px;" ><img id="profilepic" src="images/truck.png" alt=""><a href="#">Trucks Posts</a></p>
+					<!-- div ng-switch="index.truckSelection" -->
+						<!-- ul class="truckdetailpane" ng-switch-when="0" -->
+						<ul ng-repeat="truck in index.truckPostList track by $index">
+							<li ng-animate="'insert-enter'" ng-if="index.truckSelection==$index">
+								<p class="infos">FROM: {{truck.source}}</p><br/>
+								<p class="infos">TO: {{truck.destination}}</p><br/>
+								<p class="infos">TONS: {{truck.capacity}}</p><br/>
+								<p class="infos">DATE: {{truck.availableDate}}</p><br/>
+							</li>
+						</ul>
+					<!-- /div -->
+				</div>
+				<ul class="button-opt">
+					<li style="padding-right: 65px;"><input class="button-option" type="submit" name="findmore" value="FIND MORE" /></li>
+					<li><input class="button-option" type="submit" name="viewthis" value="VIEW THIS LOAD" /></li>
+				</ul>
 			</div>
 		</div>
-		<i class="form-control-feedback" ng-class="{ 'glyphicon glyphicon-remove' : form.user_city.$error.required,
-			'glyphicon glyphicon-ok' : !form.user_city.$error.required,
-			'has-feedback' : form.user_city.$error.required}"
-		   for="city">
-		</i>
-		<div ng-if="form.user_city.$error.required" class="help-block"
-			 ng-class="{ 'has-error' : form.user_city.$invalid,
-			 'has-success' : !form.user_city.$invalid,
-			 'has-feedback' : form.user_city.$invalid}"
-			 for="city">Location is mandatory da
-		</div>
-		<pre>{{form.user_city.$error | json}}</pre>
 		<!-- script src="assets/js/jquery-1.11.1.js"></script -->
 		<script src="scripts/jquery-1.9.1.min.js"></script>
 		<script src="scripts/jquery-ui-1.10.1.custom.min.js"></script>
@@ -79,6 +104,7 @@
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<!-- Angular -->
 		<script src="angular/angular.min.js"></script>
+		<script src="angular/angular-animate.min.js"></script>
 		<script src="angular/angular-route.min.js"></script>
 		<script src="angular/ui-bootstrap-tpls-0.10.0.js"></script>
 		<script src="angular/angular-bootstrap-select.min.js"></script>
@@ -95,106 +121,59 @@
 		<script>
 			'use strict';
 
-			angular.module('Otd', ['OtdDirectives']);
+			angular.module('Otd', ['ngAnimate']);
 
 			/* Controllers */
-			function SearchForm($scope){
-				$scope.fromLocation = {
-					city : '',
-					isSelected : false
-				};
-				$scope.fromLocationTemp = {
-					city : 'from temp',
-					isSelected : false
-				};
-				$scope.toLocation = {
-					city : '',
-					isSelected : false
-				};
-				$scope.toLocationTemp = {
-					city : 'to temp',
-					isSelected : false
-				};
-				$scope.location = 'location';
-				$scope.mapLocation = {
-					city : '',
-					isSelected : false
-				};
-				$scope.city = {
-					place : '',
-					isSelected : false
-				};
+			function SearchForm($scope, $http, $timeout){
+				$scope.index = {};
+				$scope.index.truckSelection = null;
+				$scope.index.loadSelection = null;
+				$scope.index.truckPostList = [];
+				$scope.index.loadPostList = [];
 
-				$scope.doSearch = function(){
-					console.log('fromLocation: ' + JSON.stringify($scope.fromLocation));
-					console.log('toLocation: ' + JSON.stringify($scope.toLocation));
-					console.log('location: ' + JSON.stringify($scope.location));
-					if($scope.location === ''){
-						alert('Directive did not update the location property in parent controller.');
-					} else {
-						//alert('Yay. Location: ' + JSON.stringify($scope.location));
-						console.log('Yay. Location: ' + JSON.stringify($scope.location));
-					}
+				$scope.timeOutFn = function(){
+					$timeout(function(){
+						console.log("Current truck post displayed:"+JSON.stringify($scope.index.truckPostList[$scope.index.selection]));
+						console.log("Current load post displayed:"+JSON.stringify($scope.index.loadPostList[$scope.index.selection]));
+						if($scope.index.truckSelection > $scope.index.truckPostList.length - 2){
+							$scope.index.truckSelection = 0;
+						}else{
+							$scope.index.truckSelection++;
+						}
+						if($scope.index.loadSelection > $scope.index.loadPostList.length - 2){
+							$scope.index.loadSelection = 0;
+						}else{
+							$scope.index.loadSelection++;
+						}
+						console.log("Next truck post to display:"+JSON.stringify($scope.index.truckPostList[$scope.index.selection]));
+						console.log("Next load post to display:"+JSON.stringify($scope.index.loadPostList[$scope.index.selection]));
+						$scope.timeOut();
+					}, 10000);
 				};
+				$scope.timeOut = function(){
+					$scope.timeOutFn();
+				};
+				$http.post("/TransEarth/getTruckPostingsSummaryTest", {filters : []})
+						.success(function(data) {
+							if(typeof data != 'undefined' && data != null
+									&& data.truckPostList != 'undefined' && data.truckPostList != null){
+								console.log(JSON.stringify(data));
+								$scope.index.loadPostList = data.truckPostList.details;
+								$scope.index.truckPostList = data.truckPostList.details;
+								$scope.index.loadSelection = 0;
+								$scope.index.truckSelection = 0;
+								$scope.timeOut();
+							}else{
+								$scope.index.truckPostListMessageAvailable = true;
+								$scope.index.truckPostListMessage = "No data available";
+								succesWarning($scope.index.truckPostListMessage, 'indexTruckPostListMessage');
+								//console.log("No data available");
+							}
+						}).error(function(data) {
+							$scope.index.truckPostListMessageAvailable = true;
+							succesError(data.statusMsg, 'indexTruckPostListMessage');
+						});
 			}
-
-			/* Directives */
-			angular.module('OtdDirectives', []).
-					directive('googlePlaces', function(){
-						return {
-							restrict:'E',
-							replace:true,
-							// transclude:true,
-							scope: {location:'='},
-							template: '<div><input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/></div>',
-							link: function($scope, elm, attrs){
-								var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], {});
-								google.maps.event.addListener(autocomplete, 'place_changed', function() {
-									var place = autocomplete.getPlace();
-									//$scope.location = place.geometry.location.lat() + ',' + place.geometry.location.lng();
-									$scope.location = place.address_components;
-									$scope.$apply();
-								});
-							}
-						}
-					}).directive('googlePlacesTemp', function(){
-						return {
-							restrict:'AE',
-							replace:true,
-							// transclude:true,
-							scope: {
-								city : '=',
-								tagId : "@",
-								tagName : "@"
-							},
-							//template: '<input id="{{tagId}}" name="{{tagName}}" type="text" class="input-block-level"/>',
-							//template: '<input id="hash" name="hash" type="text" class="input-block-level"/>',
-							//template: '<div><input id="hash" name="hash" type="text" class="input-block-level"/>{{tagId}}</div>',
-							link: function($scope, elm, attrs){
-								var tagId = attrs.tagid;
-								var tagName = attrs.tagname;
-								var template = '<input id="'+tagId+'" name="'+tagName+'"" type="text" class="input-block-level"/>';
-								console.log(template);
-								console.log($scope);
-								console.log(attrs);
-								elm.html(template);
-								var autocomplete = new google.maps.places.Autocomplete($("#"+tagId)[0], {});
-								//var autocomplete = new google.maps.places.Autocomplete($("#hash")[0], {});
-								google.maps.event.addListener(autocomplete, 'place_changed', function() {
-									var place = autocomplete.getPlace();
-									if(typeof place != "undefined" && place != null && typeof place.address_components != "undefined" && place.address_components != null){
-										$scope.city.place = place.address_components;
-										$scope.city.isSelected = true;
-									}else{
-										$scope.city.isSelected = false;
-									}
-									console.log(JSON.stringify(place));
-									console.log(JSON.stringify($scope.city));
-									$scope.$apply();
-								});
-							}
-						}
-					});
 		</script>
 	</body>
 </html>

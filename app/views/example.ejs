@@ -1,32 +1,209 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" >
-	<head>
-		<link href="css/animations.css" rel="stylesheet" />
-	</head>
-	<body ng-app="includeExample">
-		<div ng-controller="ExampleController">
-			<select ng-model="template" ng-options="t.name for t in templates">
-				<option value="">(blank)</option>
-			</select>
-			url of the template: <code>{{template.url}}</code>
-			<hr/>
-			<div class="slide-animate-container">
-				<div class="slide-animate" ng-include="template.url"></div>
-			</div>
+<html lang="en">
+<head>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="jquery-1.11.3.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+
+	<script>
+
+		$(document).ready(function(){
+
+			$('.logindiv').click(function(){
+				$('.loginpanel').show();
+			});
+
+			$('.signupdiv').click(function(){
+				$('.loginpanel').hide();
+				$('.signuppanel').show();
+			});
+
+			$('.closediv').click(function(){
+				$(this).parent().hide();
+			});
+
+			$(function loop(){
+
+				$('.loaddetailpane:visible li:first-child').delay(2500).animate({ marginLeft: "-100px", opacity: 0 }, 170, function nextitem(){
+
+					$(this).next().animate({ marginLeft: "-100px", opacity: 0 }, 170, nextitem);
+					if($('.loaddetailpane:visible li:last-child').css("opacity") == "0") {
+						$(this).parent().css("display","none");
+						$(this).parent().next().fadeIn(1000, function() {
+							loop();
+						});
+					}
+				});
+			});
+
+			$(function loop(){
+
+				$('.truckdetailpane:visible li:first-child').delay(2500).animate({ marginLeft: "-100px", opacity: 0 }, 170, function nextitem(){
+
+					$(this).next().animate({ marginLeft: "-100px", opacity: 0 }, 170, nextitem);
+					if($('.truckdetailpane:visible li:last-child').css("opacity") == "0") {
+						$(this).parent().css("display","none");
+						$(this).parent().next().fadeIn(1000, function() {
+							loop();
+						});
+					}
+				});
+			});
+
+			$('.next-btn, .back-btn').click(function( event ) {
+				event.preventDefault();});
+
+			$('.next-btn').click(function() {
+				if($('.step1').is(':visible')){
+					$('.step1').hide();
+					$('.step2').show();
+					$('.step-note2').css({"background" : "url('current.png')",'background-size' : 'cover','color' : '#000000'});
+					clicks++;
+				}
+				else{
+					if($('.step2').is(':visible')){
+						$('.step2').hide();
+						$('.step3').show();
+						$('.next-btn').hide();
+						$('.submit-button').show();
+						$('.step-note3').css({"background" : "url('current.png')",'background-size' : 'cover','color' : '#000000'});
+					}
+				}
+			});
+
+			$('.back-btn').click(function() {
+				if($('.step3').is(':visible')){
+					$('.step3').hide();
+					$('.step2').show();
+					$('.step-note3').css({"background" : "url('next.png')",'background-size' : 'cover','color' : '#ffffff'});
+					$('.submit-button').hide();
+					$('.next-btn').show();
+				}
+				else{
+					if($('.step2').is(':visible')){
+						$('.step2').hide();
+						$('.step1').show();
+						$('.step-note2').css({"background" : "url('next.png')",'background-size' : 'cover','color' : '#ffffff'});
+					}
+				}
+			});
+
+
+		});
+
+
+	</script>
+</head>
+<body>
+<header>
+	<img id="logo" 	src="logo.png" alt="" />
+	<ul class="navmenu">
+		<li><a href="trucks.html">Search Trucks</a></li>
+		<li><a href="loads.html">Search Loads</a></li>
+		<li><a class="logindiv" href="#">Login</a></li>
+	</ul>
+	<ul class="navmenu truck-owner">
+		<li><a href="#">My Trucks</a></li>
+		<li><a href="#">Search Loads</a></li>
+		<li><a href="#">Login</a></li>
+	</ul>
+	<ul class="navmenu load-owner">
+		<li><a href="#">Search Trucks</a></li>
+		<li><a href="#">Search Loads</a></li>
+		<li><a href="#">Login</a></li>
+	</ul>
+</header>
+<div class="loginpanel">
+	<form>
+		<ul>
+			<li><img style="margin-left:15px; margin-bottom: 20px;" src="logo1.png" alt="" /></li>
+			<li><input class="textbox" type="textbox" value="" name="email" placeholder="USERNAME/EMAIL" /></li>
+			<li><input class="textbox" type="textbox" value="" name="password" placeholder="PASSWORD" /></li>
+			<li><input style="background:#006FD7; margin-left:95px;" class="buttons" type="submit" name="login" value="Login" /></li>
+			<li><a style="color:white; float:left;" href="#">Forgot Password ?</a><a class="signupdiv" style="color:white; float:right;" href="#">Sign up</a></li>
+
+		</ul>
+	</form>
+	<a class="closediv" href="#"><p>CLOSE</p></a>
+</div>
+<div class="signuppanel">
+	<form>
+		<ul class="signup-head">
+			<li><img style="margin-left:15px;" src="logo1.png" alt="" /></li>
+			<li><p class="steps" style="background-image:url('current.png'); color:#000000;">1</p>
+				<p class="steps step-note2">2</p>
+				<p class="steps step-note3">3</p></li>
+		</ul>
+		<ul class="steps-list">
+			<li class="step1"><select style="  width: 270px;" class="textbox"><option>Truck owner</option><option>Load Owner</option></select></li>
+			<li class="step2"><input class="textbox" type="textbox" value="" name="email" placeholder="PASSWORD" /></li>
+			<li class="step2"><input class="textbox" type="textbox" value="" name="email" placeholder="PASSWORD" /></li>
+			<li class="step2"><input class="textbox" type="textbox" value="" name="email" placeholder="PASSWORD" /></li>
+			<li class="step3"><input class="textbox" type="textbox" value="" name="email" placeholder="TEST" /></li>
+			<li class="step3"><input class="textbox" type="textbox" value="" name="email" placeholder="TEST" /></li>
+			<li class="step3"><input class="textbox" type="textbox" value="" name="email" placeholder="TEST" /></li>
+			<li><button style="background:#006FD7; float:left;" class="buttons back-btn">Back</button></li>
+			<li><button style="background:#006FD7; float:right;" class="buttons next-btn">Next</button></li>
+			<li><input style="background:#006FD7; float:right; display:none;" class="buttons submit-button" type="submit" name="login" value="Submit" /></li>
+		</ul>
+	</form>
+	<a class="closediv" href="#"><p>CLOSE</p></a>
+</div>
+<div class="container">
+	<div class="loaddetails">
+		<div class="slider">
+			<p class="nameplace" style="height:60px; margin:30px 20px;" ><img id="profilepic" src="load.png" alt=""><a href="#">Load Posts</a></p>
+			<ul class="loaddetailpane first-slide">
+				<li><p class="infos">FROM: Chennai</p></li>
+				<li><p class="infos">TO: Madurai</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 10.06.2015</p></li>
+			</ul>
+			<ul class="loaddetailpane">
+				<li><p class="infos">FROM: Madurai</p></li>
+				<li><p class="infos">TO: Bangalore</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 5.06.2015</p></li>
+			</ul>
+			<ul class="loaddetailpane">
+				<li><p class="infos">FROM: Chennai</p></li>
+				<li><p class="infos">TO: Bangalore</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 8.06.2015</p></li>
+			</ul>
 		</div>
-		<!-- script src="assets/js/jquery-1.11.1.js"></script -->
-		<script src="scripts/jquery-1.9.1.min.js"></script>
-		<!-- Angular -->
-		<script src="angular/angular.min.js"></script>
-		<script>
-			angular.module('includeExample', [])
-					.controller('ExampleController', ['$scope', function($scope) {
-						$scope.templates =
-								[ { name: 'template1.html', url: '/TransEarth/template1'},
-									{ name: 'template2.html', url: '/TransEarth/template2'} ];
-						$scope.template = $scope.templates[0];
-						console.log($scope.templates[0].uri);
-					}]);
-		</script>
-	</body>
+		<ul class="button-opt">
+			<li style="padding-right: 65px;"><input class="button-option" type="submit" name="findmore" value="FIND MORE" /></li>
+			<li><input class="button-option" type="submit" name="viewthis" value="VIEW THIS LOAD" /></li>
+		</ul>
+	</div>
+	<div class="truckdetails">
+		<div class="slider">
+			<p class="nameplace" style="height:60px; margin:30px 20px;" ><img id="profilepic" src="truck.png" alt=""><a href="#">Trucks Posts</a></p>
+			<ul class="truckdetailpane first-slide">
+				<li><p class="infos">FROM: Chennai</p></li>
+				<li><p class="infos">TO: Bangalore</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 5.06.2015</p></li>
+			</ul>
+			<ul class="truckdetailpane">
+				<li><p class="infos">FROM: Chennai</p></li>
+				<li><p class="infos">TO: Madurai</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 8.06.2015</p></li>
+			</ul>
+			<ul class="truckdetailpane">
+				<li><p class="infos">FROM: Madurai</p></li>
+				<li><p class="infos">TO: Bangalore</p></li>
+				<li><p class="infos">TONS: 30 Tons</p></li>
+				<li><p class="infos">DATE: 10.06.2015</p></li>
+			</ul>
+		</div>
+		<ul class="button-opt">
+			<li style="padding-right: 65px;"><input class="button-option" type="submit" name="findmore" value="FIND MORE" /></li>
+			<li><input class="button-option" type="submit" name="viewthis" value="VIEW THIS LOAD" /></li>
+		</ul>
+	</div>
+</div>
+</body>
 </html>

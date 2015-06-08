@@ -2,6 +2,7 @@
 var TransEarthApp = angular.module('TransEarthApp',
     [
         'ngRoute',
+        'ngAnimate',
         'ui.bootstrap',
         'ngGrid',
         "daterangepicker",

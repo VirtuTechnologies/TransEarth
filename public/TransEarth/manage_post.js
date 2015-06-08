@@ -138,6 +138,9 @@ function truckPostManageCtrl($scope, $http, $location, $anchorScroll, $filter, U
 
     $scope.trackDays= function(){
         console.log("Tracking Days for frequency "+$scope.truckToPost.post.schedule.frequency);
+        $scope.truckToPost.post.pickup.date = null;
+        $scope.truckToPost.post.pickup.startDate = null;
+        $scope.truckToPost.post.pickup.endDate = null;
         if(typeof $scope.truckToPost.post.schedule.frequency != "undefined" && $scope.truckToPost.post.schedule.frequency != null){
             if($scope.truckToPost.post.schedule.frequency == "Weekly"){
                 $scope.dateRange = 7;
